@@ -3,7 +3,7 @@ Uduino uduino("submarineController"); // Declare and name your object
 
 //what about losing 2 bit of precision to store everything into a short (better handling for the arduino). 
 //If we loose them we can just write a single packet of 6 bytes..
-#define LOW_PRECISION_MODE
+//#define LOW_PRECISION_MODE
 
 #define precision 10
 
@@ -59,9 +59,9 @@ const int button4_pin = 5;
   typedef union {
 
     struct {
-      int x : 10;
-      int y : 10;
-      int unused : 12;
+      int x : 11;
+      int y : 11;
+      int unused : 10;
     };
 
     int val;
@@ -72,12 +72,12 @@ const int button4_pin = 5;
 typedef union {
 
   struct {
-    short pot  : 10;
+    short pot  : 11;
     short btn1 : 1; 
     short btn2 : 1; 
     short btn3 : 1; 
     short btn4 : 1;
-    short unused : 2; 
+    short unused : 1; 
   };
 
   short val;
